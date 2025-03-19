@@ -1,0 +1,110 @@
+# Django specific
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+staticfiles/
+
+# Environment variables
+.env
+
+# Virtual environment
+venv/
+env/
+
+# IDE specific
+.vscode/
+.idea/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Translations
+*.mo
+
+# Django migrations
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.orig
+*.rej
+*.log
+*.sql
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-shm
+*.sqlite3-wal
+*.sqlite3.bak
+*.sqlite3.tmp
+*.sqlite3.orig
+*.sqlite3.rej
+*.sqlite3.log
+*.sqlite3.sql
+*.sqlite3-journal.bak
+*.sqlite3-journal.tmp
+*.sqlite3-journal.orig
+*.sqlite3-journal.rej
+*.sqlite3-journal.log
+*.sqlite3-journal.sql
+*.sqlite3-shm.bak
+*.sqlite3-shm.tmp
+*.sqlite3-shm.orig
+*.sqlite3-shm.rej
+*.sqlite3-shm.log
+*.sqlite3-shm.sql
+*.sqlite3-wal.bak
+*.sqlite3-wal.tmp
+*.sqlite3-wal.orig
+*.sqlite3-wal.rej
+*.sqlite3-wal.log
+*.sqlite3-wal.sql
