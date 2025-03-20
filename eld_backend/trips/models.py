@@ -3,9 +3,15 @@ from django.db import models
 
 class Trip(models.Model):
     current_location = models.CharField(max_length=255)
+    current_location_lat = models.FloatField(default=0)
+    current_location_lng = models.FloatField(default=0)
     pickup_location = models.CharField(max_length=255)
+    pickup_location_lat = models.FloatField(default=0)
+    pickup_location_lng = models.FloatField(default=0)
     dropoff_location = models.CharField(max_length=255)
-    current_cycle_used = models.FloatField()  # in hours
+    dropoff_location_lat = models.FloatField(default=0)
+    dropoff_location_lng = models.FloatField(default=0)
+    current_cycle_used = models.FloatField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -35,7 +41,7 @@ class Trip(models.Model):
 class ELDLog(models.Model):
     trip = models.ForeignKey(
         Trip, on_delete=models.CASCADE, related_name='logs')
-    log_data = models.JSONField()  # Store log details as JSON
+    log_data = models.JSONField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
