@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import TripForm from "./pages/TripForm";
+import TripLogs from "./pages/TripLogs";
+import Navbar from "./components/Navbar";
+import TripList from "./pages/TripList";
+import TripMap from "./pages/TripMap";
+import Notification from "./components/Notification";
+import { NotificationProvider } from "./contexts/NotificationContext";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <NotificationProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/create-trip" element={<TripForm />} />
+          <Route path="/trip-logs/:trip_id" element={<TripLogs />} />
+          <Route path="/trip-map/:trip_id" element={<TripMap />} />
+          <Route path="/trips" element={<TripList />} />
+        </Routes>
+        <Notification />
+      </Router>
+    </NotificationProvider>
+  );
+};
 
-export default App
+export default App;
