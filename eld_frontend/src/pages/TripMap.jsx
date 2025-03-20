@@ -32,23 +32,23 @@ const TripMap = () => {
     const fetchTrip = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/trips/${trip_id}/`
+          `http://localhost:8000/api/trips/${trip_id}`
         );
-        setTrip(response.data);
+        setTrip(response.data[0]);
 
         // Example: Generate a route (you can replace this with actual route data from an API)
         const exampleRoute = [
           [
-            response.data.current_location_lat,
-            response.data.current_location_lng,
+            response.data[0].current_location_lat,
+            response.data[0].current_location_lng,
           ], // Current location
           [
-            response.data.pickup_location_lat,
-            response.data.pickup_location_lng,
+            response.data[0].pickup_location_lat,
+            response.data[0].pickup_location_lng,
           ], // Pickup location
           [
-            response.data.dropoff_location_lat,
-            response.data.dropoff_location_lng,
+            response.data[0].dropoff_location_lat,
+            response.data[0].dropoff_location_lng,
           ], // Dropoff location
         ];
         setRoute(exampleRoute);
@@ -71,26 +71,27 @@ const TripMap = () => {
       <MapContainer
         center={[trip.current_location_lat, trip.current_location_lng]} // Center map on current location
         zoom={6}
+        scrollWheelZoom={false}
         style={{ height: "400px", width: "100%" }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-        <Polyline positions={route} color="blue" />
+        {/* <Polyline positions={route} color="blue" /> */}
         <Marker
           position={[trip.current_location_lat, trip.current_location_lng]}
         >
           <Popup>Current Location</Popup>
         </Marker>
-        <Marker position={[trip.pickup_location_lat, trip.pickup_location_lng]}>
+        {/* <Marker position={[trip.pickup_location_lat, trip.pickup_location_lng]}>
           <Popup>Pickup Location</Popup>
         </Marker>
         <Marker
           position={[trip.dropoff_location_lat, trip.dropoff_location_lng]}
         >
           <Popup>Dropoff Location</Popup>
-        </Marker>
+        </Marker> */}
       </MapContainer>
     </Container>
   );
